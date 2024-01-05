@@ -1,0 +1,67 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  user:
+    format: "[%(asctime)s] {%(pathname)s: %(lineno)d} %(levelname)s - %(message)s"
+    datefmt: "%H:%M:%S"
+  simple:
+    format: "[%(asctime)s] %(filename)s: [%(funcName)s, line %(lineno)d] %(levelname)s - %(message)s"
+    datefmt: "%m/%d/%Y %H:%M:%S"
+
+handlers:
+  console:
+    class: logging.StreamHandler # sends logging output to streams such as sys.stdout, sys.stderr
+    level: INFO
+    formatter: simple
+    stream: "ext://sys.stdout"
+  file_debug:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: .\logs\01_debug_logs.log
+    maxBytes: 10_485_760
+    backupCount: 5
+    encoding: utf8
+  file_info:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename: .\logs\02_info_logs.log
+    maxBytes: 10_485_760
+    backupCount: 5
+    encoding: utf8
+  file_warning:
+    class: logging.handlers.RotatingFileHandler
+    level: WARNING
+    formatter: simple
+    filename: .\logs\03_warning_logs.log
+    maxBytes: 10_485_760
+    backupCount: 5
+    encoding: utf8
+  file_error:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: simple
+    filename: .\logs\04_error_logs.log
+    maxBytes: 10_485_760
+    backupCount: 5
+    encoding: utf8
+  file_critical:
+    class: logging.handlers.RotatingFileHandler
+    level: CRITICAL
+    formatter: simple
+    filename: .\logs\05_critical_logs.log
+    maxBytes: 10_485_760
+    backupCount: 5
+    encoding: utf8
+
+root: # root logger
+  level: DEBUG
+  handlers:
+    - console
+    - file_info
+    - file_debug
+    - file_warning
+    - file_error
+    - file_critical
