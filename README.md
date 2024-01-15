@@ -1,20 +1,40 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# GenAi_library
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Library to accelerate GenAI projects
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+### Prerequisites
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+To use the GenAi_library you will need of the libraries listed on the requirements file, and the Azure APIs keys.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Local Installation
+
+Ensure that your **python** version is >= 3.10 
+
+If you have configured ssh keys from github, you can install directly:
+
+```bash
+   $ pip install git+ssh://git@github.com/EYLatamSouth/GenAi_library.git
+```
+
+Or you can clone and install the package with the following command:
+
+```bash
+   $ git clone https://github.com/EYLatamSouth/GenAi_library.git
+   $ cd GenAi_library/
+   $ pip install -r requirements.txt
+   $ pip install .   
+```
+
+### First Example
+
+```bash
+   $ python src/ey_analytics/apps/main.py
+```
+
+## Contributing
+
+Please feel free to propose new features by raising an [Issue](https://github.com/EYLatamSouth/GenAi_library/issues/new/choose) or creating a Pull Request.
