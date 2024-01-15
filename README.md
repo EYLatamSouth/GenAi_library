@@ -2,6 +2,30 @@
 
 Library to accelerate GenAI projects
 
+##
+<div align="center">
+  <table><tbody><tr>
+      <td align="center"><a href="https://github.com/EYLatamSouth/GenAi_library#installation">
+          <img src="/docs/logos/pip.png" alt="Pip" width="128px"><br>
+          <strong>Installation</strong>
+      </a></td>
+      <td align="center"><a href="https://github.com/EYLatamSouth/GenAi_library#first-example">
+          <img src="/docs/logos/start.png" alt="First Example" width="128px"><br>
+          <strong>First Example</strong>
+      </a></td>
+      <td align="center"><a href="https://github.com/EYLatamSouth/GenAi_library#tutorials">
+          <img src="/docs/logos/steps.png" alt="Tutorials" width="128px"><br>
+          <strong>Step by Step Tutorials</strong>
+      </a></td>
+      <td align="center"><a href="https://github.com/EYLatamSouth/GenAi_library#docs">
+          <img src="/docs/logos/paper.png" alt="Documentation" width="128px"><br>
+          <strong>Documentation</strong>
+      </a></td>
+  </tr></tbody></table>
+</div>
+
+## 
+
 ### Prerequisites
 
 To use the GenAi_library you will need of the libraries listed on the requirements file, and the Azure APIs keys.
@@ -10,7 +34,7 @@ To use the GenAi_library you will need of the libraries listed on the requiremen
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Local Installation
+### Installation
 
 Ensure that your **python** version is >= 3.10 
 
@@ -26,7 +50,7 @@ Or you can clone and install the package with the following command:
    $ git clone https://github.com/EYLatamSouth/GenAi_library.git
    $ cd GenAi_library/
    $ pip install -r requirements.txt
-   $ pip install .   
+   $ pip install . -U   
 ```
 
 ### First Example
