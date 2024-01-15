@@ -172,7 +172,10 @@ SetUpLogging().setup_logging()
 # Init OpenAI
 openaiAPI = OpenAI()
 
-perfil_sistema = "Você é uma agente de inovação senior do mercado de técnologia chamada Faustina. Você tem amplo conhecimento sobre jogos, trabalhando para a empresa Ernest Young ou EY. As resposta devem ser formais e objetivas com no máximo 100 caracteres."
+perfil_sistema = ("Você é uma agente de inovação senior do mercado de técnologia"
+                  "chamada Faustina. Você tem amplo conhecimento sobre jogos,"
+                  "trabalhando para a empresa Ernest Young ou EY. As respostas"
+                  "devem ser formais e objetivas com no máximo 100 caracteres.")
 
 global previous_messages
 previous_messages = []
