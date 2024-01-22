@@ -1,6 +1,5 @@
 import os
 import logging
-import azure.cognitiveservices.vision.computervision as computervisionsdk
 import azure.ai.vision as visionsdk
 from dotenv import load_dotenv
 
@@ -57,12 +56,15 @@ class Vision():
             visionsdk.ImageAnalysisFeature.TEXT
         )
 
-    def config_vision_source(self, remote_image_url: str):
-        self.vision_source = visionsdk.VisionSource(url=remote_image_url)
+    def config_vision_source(self, image_path: str):
+        if image_path.startswith('http'):
+            self.vision_source = visionsdk.VisionSource(url=image_path)
+        else:
+            self.vision_source = visionsdk.VisionSource(filename=image_path)
 
-    def image_analyzer(self, remote_image_url: str, language: str = 'en'):
+    def image_analyzer(self, image_path: str, language: str = 'en'):
         self.config_analysis_options(language)
-        self.config_vision_source(remote_image_url)
+        self.config_vision_source(image_path)
 
         image_analyzer = visionsdk.ImageAnalyzer(self.service_options,
                                                  self.vision_source,
@@ -90,7 +92,7 @@ class Vision():
         logging.info("Caption: " + "'{}', Confidence {:.4f}".format(
             image_analysis.caption.content, image_analysis.caption.confidence))
 
-    def text_caption_feature_results(self, image_analysis):
+    def text_feature_results(self, image_analysis):
         logging.info("Text:")
         for line in image_analysis.text.lines:
             points_list = [str(int(point)) for point in line.bounding_polygon]

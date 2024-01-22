@@ -4,9 +4,9 @@ import tkinter as tk
 from tkinter import scrolledtext
 from PIL import Image, ImageTk
 from ey_analytics.utils.logger import SetUpLogging
-from ey_analytics.openai_api import OpenAI
+from ey_analytics.ai import OpenAI
 from ey_analytics.utils.storage import Storage
-from ey_analytics.cognitive_services import Speech, Vision
+from ey_analytics.ai import Speech, Vision
 
 
 def start_video():
