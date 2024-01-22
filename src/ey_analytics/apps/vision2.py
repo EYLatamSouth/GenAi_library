@@ -1,19 +1,21 @@
 import cv2
 import logging
-from EYAnalytics.utils.logger import SetUpLogging
-from EYAnalytics.utils.storage import Storage
-from EYAnalytics.utils.cognitive_services import Speech, Vision
+from ey_analytics.utils.logger import SetUpLogging
+from ey_analytics.utils.storage import Storage
+from ey_analytics.cognitive_services.cognitive_services import Speech, Vision
 
 # Init logger
 SetUpLogging().setup_logging()
 
 # Init Cognitives
-speech = Speech(synthesis_voice_name='en-US-JennyMultilingualNeural')
+speech = Speech(synthesis_voice_name="en-US-JennyMultilingualNeural")
 vision = Vision()
 storage = Storage()
 
 # Create a VideoCapture object
-cap = cv2.VideoCapture(0)  # '0' represents the default camera, you can change it if you have multiple cameras
+cap = cv2.VideoCapture(
+    0
+)  # '0' represents the default camera, you can change it if you have multiple cameras
 
 # Check if the camera is opened successfully
 if not cap.isOpened():
@@ -31,16 +33,17 @@ while True:
         cv2.imshow("Camera", frame)
 
         # Press 's' to capture a snapshot
-        if cv2.waitKey(1) == ord('s'):
-
-            container_name = 'images'
-            image_name = 'snapshot.jpg'
+        if cv2.waitKey(1) == ord("s"):
+            container_name = "images"
+            image_name = "snapshot.jpg"
 
             # Save the frame as an image file
             cv2.imwrite(image_name, frame)
             logging.info("Snapshot saved as snapshot.jpg")
 
-            remote_image_url = storage.upload_image(container_name=container_name, image_name=image_name)
+            remote_image_url = storage.upload_image(
+                container_name=container_name, image_name=image_name
+            )
 
             image_analysis = vision.image_analyzer(remote_image_url)
             vision.check_image_analysis(image_analysis)
@@ -51,7 +54,7 @@ while True:
             break
 
     # Exit the loop if 'q' is pressed
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) == ord("q"):
         break
 
 # Release the VideoCapture object and close all windows

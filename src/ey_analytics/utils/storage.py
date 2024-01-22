@@ -3,12 +3,9 @@ import logging
 from dotenv import load_dotenv
 from azure.storage.blob import BlobServiceClient, ContentSettings
 
-try:
-    from EYAnalytics.utils.logger import SetUpLogging
-    from EYAnalytics.utils.keyvault import Keyvault
-except Exception:
-    from logger import SetUpLogging
-    from keyvault import Keyvault
+from ey_analytics.utils.logger import SetUpLogging
+from ey_analytics.utils.keyvault import Keyvault
+
 
 # Init logger
 SetUpLogging().setup_logging()

@@ -2,11 +2,8 @@ import os
 import logging
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
+from ey_analytics.utils.logger import SetUpLogging
 
-try:
-    from EYAnalytics.utils.logger import SetUpLogging
-except Exception:
-    from logger import SetUpLogging
 
 # Init logger
 SetUpLogging().setup_logging()

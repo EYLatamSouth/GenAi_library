@@ -8,8 +8,8 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import ElasticVectorSearch, FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import AzureOpenAI
-from EYAnalytics.utils.speechAPI import Speech
-from EYAnalytics.utils.logger import SetUpLogging
+from ey_analytics.utils.speechAPI import Speech
+from ey_analytics.utils.logger import SetUpLogging
 
 # Init logger
 SetUpLogging().setup_logging()

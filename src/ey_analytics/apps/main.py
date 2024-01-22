@@ -1,9 +1,9 @@
 import cv2
 import logging
-from EYAnalytics.utils.logger import SetUpLogging
-from EYAnalytics.utils.openaiAPI import OpenAI
-from EYAnalytics.utils.storage import Storage
-from EYAnalytics.utils.cognitive_services import Speech, Vision
+from ey_analytics.utils.logger import SetUpLogging
+from ey_analytics.ai import OpenAI
+from ey_analytics.utils.storage import Storage
+from ey_analytics.ai import Speech, Vision
 
 # Init logger
 SetUpLogging().setup_logging()
@@ -169,7 +169,10 @@ def chatbot(perfil_sistema: str,
 
 def main():
 
-    perfil_sistema = 'Você é uma agente de inovação senior do mercado de técnologia chamada Faustina. Você tem amplo conhecimento sobre jogos, trabalhando para a empresa Ernest Young ou EY. As resposta devem ser formais e objetivas com no máximo 100 caracteres.'
+    perfil_sistema = ("Você é uma agente de inovação senior do mercado de técnologia"
+                      "chamada Faustina. Você tem amplo conhecimento sobre jogos,"
+                      "trabalhando para a empresa Ernest Young ou EY. As respostas"
+                      "devem ser formais e objetivas com no máximo 100 caracteres.")
 
     chatbot(perfil_sistema, format='fala')
 

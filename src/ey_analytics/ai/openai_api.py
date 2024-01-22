@@ -9,18 +9,13 @@ from io import BytesIO
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
-try:
-    from EYAnalytics.utils.logger import SetUpLogging
-    from EYAnalytics.utils.keyvault import Keyvault
-except Exception:
-    from logger import SetUpLogging
-    from keyvault import Keyvault
+
+from ey_analytics.utils.logger import SetUpLogging
+from ey_analytics.utils.keyvault import Keyvault
+
 
 # Init logger
 SetUpLogging().setup_logging()
-
-# Init keyvault
-kv = Keyvault()
 
 
 @SetUpLogging.class_logger
@@ -40,6 +35,9 @@ class OpenAI():
 
         os.environ["OPENAI_API_TYPE"] = api_type
         os.environ["OPENAI_API_VERSION"] = api_version
+
+        # Init keyvault
+        self.kv = Keyvault()
         self.load_env(env_path)
         self.config_openai()
 
@@ -86,8 +84,8 @@ class OpenAI():
 
         if env_path is None:
             logging.info("Define API from Keyvault")
-            kv.get_secret_as_env('AZURE-OPENAI-API-BASE', 'OPENAI_API_BASE')
-            kv.get_secret_as_env('AZURE-OPENAI-API-KEY', 'OPENAI_API_KEY')
+            self.kv.get_secret_as_env('AZURE-OPENAI-API-BASE', 'OPENAI_API_BASE')
+            self.kv.get_secret_as_env('AZURE-OPENAI-API-KEY', 'OPENAI_API_KEY')
         else:
             logging.info("Define API from env")
             load_dotenv(dotenv_path=os.path.abspath(env_path))
